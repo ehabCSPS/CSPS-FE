@@ -1,4 +1,5 @@
 import React from 'react'
+import LinearGradient from 'react-native-linear-gradient'
 import {
     SafeAreaView,
     StyleSheet,
@@ -9,40 +10,50 @@ import {
     StatusBar,
     TouchableOpacity,
     Alert,
-    Button
+    Button,
+    ImageBackground
   } from 'react-native';
 
-  import CarImg from '../../../assets/images/car.jpg'
+  import CarImg from '../../../assets/images/travel.png'
+  import backImg from '../../../assets/images/back.png'
 
-const Language = () => {
+const Language = (props) => {
+
 
     return(
+        <ImageBackground source={backImg} style={{width: '100%', height: '100%'}}>
         <View style={styles.container}>
         <View style={styles.head} >
-        <Text style={styles.headText}>Welcome to Whatever</Text>
+        <Text style={styles.headText}>Welcome to CSPS</Text>
         <Text style={styles.headText}>Explore Us</Text>
             </View>
-        <View style={styles.center} >
+        <View style={styles.body} >
             <Image source={CarImg} style={styles.image}/>
             </View>
         <View style={styles.footer} >
-        <TouchableOpacity 
-        style={styles.button}
-        >
+
+       
+        <TouchableOpacity  style={styles.button}  >
+        <LinearGradient colors={['#ffb800', '#ff9600']} style={styles.linearGradient}>
                 <Text  style={styles.buttonTitle}>عربي</Text>
+                </LinearGradient>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => props.navigation.push('Home')}>
+            <LinearGradient colors={['#ffb800', '#ff9600']}
+             style={styles.linearGradient}
+            >
                 <Text  style={styles.buttonTitle}>English</Text>
+                </LinearGradient>
             </TouchableOpacity>
             </View>
       </View>
+      </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
         flexDirection: 'column',
-        backgroundColor:'#fff'
     },
     head: {
         width: '100%', 
@@ -52,41 +63,45 @@ const styles = StyleSheet.create({
          paddingTop:30
     },
     image: {
-        width:'50%',
-        height:'100%',
-        alignSelf: 'center'
+        width:'90%',
+        height:'120%',
+        alignSelf: 'center',
+        paddingTop:10
     },
     headText: {
         fontSize:25,
         marginTop:20
     },
-    center: {
+    body: {
         width: '100%', 
         height: '33.333%',
+        flexDirection: 'column',
+        marginTop:-25
     },
     footer: {
         width: '100%', 
         height: '33.333%',
          flexDirection: 'column',
          alignItems:'center',  
+         marginTop:40
+    },
+    linearGradient: {
+        width:'100%',
+        height:'100%',
+        alignItems:'center',
+        paddingTop:5,
+        borderRadius:5,
+        textAlignVertical:'center' 
     },
     button: {
-        width:'70%',
+        width:'80%',
         height:'20%',
-        alignItems:'center',
-        alignSelf:'center',
-        alignContent:'center',
         marginTop: 30,
-        backgroundColor: '#f2a011',
-        borderRadius:10,
-        borderWidth: 1,
-        borderColor:'#f2a011',  
-        textAlignVertical:'center'   
+        textAlignVertical:'center' 
     },
     buttonTitle:{
         color:'#fff',
         fontSize:25,
-      
     }
   });
 
