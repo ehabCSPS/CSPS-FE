@@ -29,7 +29,7 @@ const Home = (props) => {
                 <Text  style={styles.buttonTitle}>Log in</Text>
                 </LinearGradient>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => props.navigation.push('Register')}>
                 <Text  style={styles.buttonTitleSignUp}>Sign up</Text>
             </TouchableOpacity>
             </View>
