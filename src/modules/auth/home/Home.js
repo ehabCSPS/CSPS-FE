@@ -8,13 +8,17 @@ import {
     TouchableOpacity,
   } from 'react-native';
 
-  import CarImg from '../../../assets/images/car.jpg'
+  import CarImg from '../../../assets/images/gifSpeed.gif'
+  import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Home = (props) => {
 
     return(
         <View style={styles.container}>
         <View style={styles.head} >
+        <Icon.Button name="arrow-left" backgroundColor='#000' color='#FF3200'
+        style={styles.icon} onPress={() => props.navigation.pop()}>
+            </Icon.Button>
         <Text style={styles.headText}>Welcome to CSPS</Text>
         <Text style={styles.headText}>Explore Us</Text>
             </View>
@@ -25,7 +29,7 @@ const Home = (props) => {
 
        
         <TouchableOpacity  style={styles.button}  onPress={() => props.navigation.push('Login')}  >
-        <LinearGradient colors={['#ffb800', '#ff9600']} style={styles.linearGradient}>
+        <LinearGradient colors={['#761700', '#FF3200']} style={styles.linearGradient}>
                 <Text  style={styles.buttonTitle}>Log in</Text>
                 </LinearGradient>
             </TouchableOpacity>
@@ -40,27 +44,34 @@ const Home = (props) => {
 const styles = StyleSheet.create({
     container:{
         flexDirection: 'column',
-        backgroundColor:'#fff'
+        backgroundColor: '#000'
     },
     head: {
         width: '100%', 
         height: '33.333%',
          flexDirection: 'column',
          alignItems:'center',  
-         paddingTop:30
+         paddingTop:30,
+         color:'#fff'
+    },
+    icon: {
+        marginRight:320,
     },
     image: {
-        width:'50%',
-        height:'100%',
+        width:'90%',
+        height:'120%',
         alignSelf: 'center'
     },
     headText: {
         fontSize:25,
-        marginTop:20
+        marginTop:20,
+        color:'#fff'
     },
     body: {
         width: '100%', 
         height: '33.333%',
+        marginBottom:50,
+        marginTop:-40
     },
     footer: {
         width: '100%', 
@@ -73,7 +84,7 @@ const styles = StyleSheet.create({
         width:'100%',
         height:'100%',
         alignItems:'center',
-        borderRadius:20,
+        borderRadius:5,
         paddingTop:5,
         textAlignVertical:'center' 
     },
@@ -86,9 +97,10 @@ const styles = StyleSheet.create({
     buttonTitle:{
         color:'#fff',
         fontSize:25,
+
     },
     buttonTitleSignUp:{
-        color:'#000',
+         color:'#fff',
         fontSize:20,
         alignSelf:'center'
     }

@@ -14,53 +14,54 @@ import {
     ImageBackground
   } from 'react-native';
 
-  import CarImg from '../../../assets/images/travel.png'
-  import backImg from '../../../assets/images/back.png'
+
+
+  import CarImg from '../../../assets/images/gifSpeed.gif'
 
 const Language = (props) => {
 
 
     return(
-        <ImageBackground source={backImg} style={{width: '100%', height: '100%'}}>
         <View style={styles.container}>
         <View style={styles.head} >
         <Text style={styles.headText}>Welcome to CSPS</Text>
         <Text style={styles.headText}>Explore Us</Text>
             </View>
         <View style={styles.body} >
-            <Image source={CarImg} style={styles.image}/>
+         
+            <Image source={CarImg} style={styles.image} />
             </View>
         <View style={styles.footer} >
 
        
-        <TouchableOpacity  style={styles.button}  >
-        <LinearGradient colors={['#ffb800', '#ff9600']} style={styles.linearGradient}>
-                <Text  style={styles.buttonTitle}>عربي</Text>
+        <TouchableOpacity  style={styles.button} onPress={() => props.navigation.push('Home')}  >
+        <LinearGradient colors={['#761700', '#FF3200']} style={styles.linearGradient}>
+                <Text  style={styles.buttonTitle}>English</Text>
                 </LinearGradient>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => props.navigation.push('Home')}>
-            <LinearGradient colors={['#ffb800', '#ff9600']}
+            <TouchableOpacity style={styles.button} >
+            <LinearGradient colors={['#761700', '#FF3200']}
              style={styles.linearGradient}
             >
-                <Text  style={styles.buttonTitle}>English</Text>
+                <Text  style={styles.buttonTitle}>العربية</Text>
                 </LinearGradient>
             </TouchableOpacity>
             </View>
       </View>
-      </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
         flexDirection: 'column',
+        backgroundColor: '#000'
     },
     head: {
         width: '100%', 
         height: '33.333%',
          flexDirection: 'column',
          alignItems:'center',  
-         paddingTop:30
+         paddingTop:30,   
     },
     image: {
         width:'90%',
@@ -70,13 +71,15 @@ const styles = StyleSheet.create({
     },
     headText: {
         fontSize:25,
-        marginTop:20
+        marginTop:20,
+        color:'#fff'
     },
     body: {
         width: '100%', 
         height: '33.333%',
         flexDirection: 'column',
-        marginTop:-25
+        marginTop:-25,
+        marginBottom:15,
     },
     footer: {
         width: '100%', 

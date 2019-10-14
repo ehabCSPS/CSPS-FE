@@ -13,7 +13,8 @@ const AppNavigator = createStackNavigator({
   Register: {screen: Register}
 },{
   headerMode: 'none',
-  initialRouteName: 'Language'
+  initialRouteName: 'Language',
+
 });
 
  const App = createAppContainer(AppNavigator);

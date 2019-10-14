@@ -5,32 +5,53 @@ import {
     View,
     Text,
     TouchableOpacity,
-    TextInput
+    TextInput,
+    
   } from 'react-native';
 
-  const Login = () => {
+  import { MKTextField , MKColor  } from 'react-native-material-kit';
+  import Icon from 'react-native-vector-icons/FontAwesome'
+
+  const Login = (props) => {
 
       return(
         <View style={styles.container}>
             <View style={styles.head}>
+            <Icon.Button name="arrow-left" backgroundColor='#000' color='#FF3200'
+        style={styles.icon} onPress={() => props.navigation.pop()}>
+            </Icon.Button>
             <Text style={styles.headText}>Login</Text>
             </View>
             <View style={styles.body}>
             <Text style={styles.emailLabel}>Email</Text>
-            <TextInput placeholder='Email' style={styles.emailInput} keyboardType='email-address' />
+            <MKTextField
+            tintColor={MKColor.Silver}
+            textInputStyle={{color: MKColor.Silver,fontSize:18}}
+            placeholder="email"
+            placeholderTextColor='#fff'
+            keyboardType='email-address'
+              style={styles.textfield}
+            />
             <Text style={styles.emailLabel}>Password</Text>
-            <TextInput placeholder='Password' style={styles.passwordInput} secureTextEntry={true} />
+            <MKTextField
+             tintColor={MKColor.Silver}
+              textInputStyle={{color: MKColor.Silver,fontSize:18}}
+               placeholder="password"j
+               password={true}
+               placeholderTextColor='#fff'
+              style={styles.textfield}
+            />
             </View>
             <View style={styles.footer}>
             <TouchableOpacity  style={styles.loginButton}  >
-        <LinearGradient colors={['#ffb800', '#ff9600']} style={styles.linearGradient}>
+        <LinearGradient colors={['#761700', '#FF3200']} style={styles.linearGradient}>
                 <Text  style={styles.buttonTitleLogin}>Log In</Text>
                 </LinearGradient>
             </TouchableOpacity>
 
             <View style={styles.gotoSignUp}>
             <Text  style={styles.signUpLabel}>You don't have account ?</Text>
-            <TouchableOpacity style={styles.signupButton}>
+            <TouchableOpacity style={styles.signupButton} onPress={() => props.navigation.push('Register')}>
                 <Text  style={styles.buttonTitleSignUp}>Sign Up</Text>
             </TouchableOpacity>
             </View>
@@ -49,34 +70,51 @@ import {
 
     container:{
         flexDirection:'column',
+        backgroundColor: '#000',
+        height:'100%'
     },
     headText:{
         fontSize:35,
         margin:25,
+        color:'#fff'
+    },
+    textfield:{
+    marginLeft:25,
+    width:'90%'
+    },
+    icon: {
+       // marginRight:300,
+       marginLeft:15,
+       marginTop:25
     },
     emailLabel:{
         fontSize:20,
         margin:25,
+        color:'#fff'
     },
     emailInput:{
         fontSize:20,
         marginLeft:25,
-        marginTop:-20
+        marginTop:-20,
+        color:'#fff'
     },
     passwordLabel:{
         fontSize:20,
         margin:25,
+        color:'#fff'
     },
     passwordInput:{
         fontSize:20,
         marginLeft:25,
-        marginTop:-20
+        marginTop:-20,
+        color:'#fff'
     },
     head:{
-
+        height: '33.333%',
     },
     body:{
-
+        height: '33.333%',
+        marginTop:-50
     },
     footer:{
         width: '100%', 
@@ -106,15 +144,16 @@ import {
     },
     gotoSignUp:{
         flexDirection:'row',
-        margin:40
+        margin:40,
+        marginBottom:20
     },
     signUpLabel: {
-        color:'#000',
+        color:'#fff',
         fontSize:17,
         marginRight:10,
     },
     buttonTitleSignUp: {
-        color:'#000',
+        color:'#fff',
         fontSize:17,
         fontWeight:'bold'
     },
@@ -123,7 +162,7 @@ import {
         height:'28%',
     },
     forgotPasswordLabel: {
-        color:'#000',
+        color:'#fff',
         fontSize:17,
         fontWeight:'bold'
     }

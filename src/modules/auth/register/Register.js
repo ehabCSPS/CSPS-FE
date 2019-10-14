@@ -7,31 +7,56 @@ import {
     TouchableOpacity,
     TextInput
   } from 'react-native';
+  import { MKTextField , MKColor  } from 'react-native-material-kit';
+  import Icon from 'react-native-vector-icons/FontAwesome'
 
-const Register = () => {
+const Register = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.head}>
-            <Text style={styles.headText}>Sign up</Text>
+            <Icon.Button name="arrow-left" backgroundColor='#000' color='#FF3200'
+        style={styles.icon} onPress={() => props.navigation.pop()}>
+            </Icon.Button>
+            <Text style={styles.headText}>Sign Up</Text>
             </View>
             <View style={styles.body}>
             <Text style={styles.emailLabel}>Name</Text>
-            <TextInput placeholder='Name' style={styles.emailInput} />
+            <MKTextField
+            tintColor={MKColor.Silver}
+            textInputStyle={{color: MKColor.Silver,fontSize:18}}
+            placeholder="name"
+            placeholderTextColor='#fff'
+              style={styles.textfield}
+            />
             <Text style={styles.emailLabel}>Email</Text>
-            <TextInput placeholder='Email' style={styles.emailInput} keyboardType='email-address' />
+            <MKTextField
+            tintColor={MKColor.Silver}
+            textInputStyle={{color: MKColor.Silver,fontSize:18}}
+            placeholder="email"
+            placeholderTextColor='#fff'
+            keyboardType='email-address'
+              style={styles.textfield}
+            />
             <Text style={styles.emailLabel}>Password</Text>
-            <TextInput placeholder='Password' style={styles.passwordInput} secureTextEntry={true} />
+            <MKTextField
+             tintColor={MKColor.Silver}
+              textInputStyle={{color: MKColor.Silver,fontSize:18}}
+               placeholder="password"j
+               password={true}
+               placeholderTextColor='#fff'
+              style={styles.textfield}
+            />
             </View>
             <View style={styles.footer}>
             <TouchableOpacity  style={styles.loginButton}  >
-        <LinearGradient colors={['#ffb800', '#ff9600']} style={styles.linearGradient}>
-                <Text  style={styles.buttonTitleLogin}>Sign up</Text>
+        <LinearGradient colors={['#761700', '#FF3200']} style={styles.linearGradient}>
+                <Text  style={styles.buttonTitleLogin}>Sign Up</Text>
                 </LinearGradient>
             </TouchableOpacity>
             <View style={styles.gotoSignUp}>
-            <Text  style={styles.signUpLabel}>You already have Account ?</Text>
-            <TouchableOpacity style={styles.signupButton}>
-                <Text  style={styles.buttonTitleSignUp}>Sign In</Text>
+            <Text  style={styles.signInLabel}>You already have Account ?</Text>
+            <TouchableOpacity style={styles.signInButton} onPress={() => props.navigation.push('Login')}>
+                <Text  style={styles.buttonTitleSignIn}>Sign In</Text>
             </TouchableOpacity>
             </View>
             
@@ -44,14 +69,23 @@ const Register = () => {
 const styles = StyleSheet.create({
     container:{
         flexDirection:'column',
+        height:'100%',
+        backgroundColor:'#000'
     },
     headText:{
         fontSize:35,
         margin:25,
+        color:'#fff'
     },
+    icon: {
+        // marginRight:300,
+        marginLeft:15,
+        marginTop:25
+     },
     emailLabel:{
         fontSize:20,
         margin:25,
+        color:'#fff'
     },
     emailInput:{
         fontSize:20,
@@ -73,12 +107,15 @@ const styles = StyleSheet.create({
     body:{
 
     },
+    textfield:{
+        marginLeft:25,
+        width:'90%'
+        },
     footer:{
         width: '100%', 
         height: '33.333%',
          flexDirection: 'column',
          alignItems:'center',  
-         marginTop:40
     },
     linearGradient: {
         width:'100%',
@@ -97,31 +134,24 @@ const styles = StyleSheet.create({
     buttonTitleLogin:{
         color:'#fff',
         fontSize:25,
-        padding:10
+        padding:10,
+        color:'#fff'
     },
     gotoSignUp:{
         flexDirection:'row',
-        margin:40
+        margin:40,
+        marginTop:20
     },
-    signUpLabel: {
-        color:'#000',
+    signInLabel: {
+        color:'#fff',
         fontSize:17,
         marginRight:10,
     },
-    buttonTitleSignUp: {
-        color:'#000',
+    buttonTitleSignIn: {
+        color:'#fff',
         fontSize:17,
         fontWeight:'bold'
     },
-    forgotPasswordButton: {
-        width:'40%',
-        height:'28%',
-    },
-    forgotPasswordLabel: {
-        color:'#000',
-        fontSize:17,
-        fontWeight:'bold'
-    }
 })
 
 export default Register
