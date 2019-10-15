@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         paddingTop:10
     },
     headText: {
-        fontSize:25,
+        fontSize:22,
         marginTop:20,
         color:'#fff'
     },

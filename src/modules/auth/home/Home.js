@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     headText: {
-        fontSize:25,
+        fontSize:22,
         marginTop:20,
         color:'#fff'
     },

@@ -83,9 +83,9 @@ const styles = StyleSheet.create({
         marginTop:25
      },
     emailLabel:{
-        fontSize:20,
+        fontSize:18,
         margin:25,
-        color:'#fff'
+        color:'#c7c7c7'
     },
     emailInput:{
         fontSize:20,
@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
     },
     textfield:{
         marginLeft:25,
-        width:'90%'
+        width:'90%',
+        marginTop:-10,
         },
     footer:{
         width: '100%', 
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
         marginTop:20
     },
     signInLabel: {
-        color:'#fff',
+        color:'#c7c7c7',
         fontSize:17,
         marginRight:10,
     },

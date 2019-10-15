@@ -80,7 +80,8 @@ import {
     },
     textfield:{
     marginLeft:25,
-    width:'90%'
+    width:'90%',
+    marginTop:-10,
     },
     icon: {
        // marginRight:300,
@@ -88,18 +89,20 @@ import {
        marginTop:25
     },
     emailLabel:{
-        fontSize:20,
+        fontSize:18,
         margin:25,
-        color:'#fff'
+        color:'#c7c7c7',
+        marginTop:30,
     },
     emailInput:{
         fontSize:20,
         marginLeft:25,
         marginTop:-20,
-        color:'#fff'
+        color:'#fff',
+      
     },
     passwordLabel:{
-        fontSize:20,
+        fontSize:18,
         margin:25,
         color:'#fff'
     },
@@ -148,7 +151,7 @@ import {
         marginBottom:20
     },
     signUpLabel: {
-        color:'#fff',
+        color:'#c7c7c7',
         fontSize:17,
         marginRight:10,
     },
