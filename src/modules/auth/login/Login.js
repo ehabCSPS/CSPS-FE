@@ -6,6 +6,9 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {MKTextField, MKColor} from 'react-native-material-kit';
@@ -40,63 +43,68 @@ const Login = ({loginSuccess, login, loginFailed, navigation}) => {
     }
   }, [loginSuccess, loginFailed]);
   return (
-    <View style={styles.container}>
-      <View style={styles.head}>
-        <Icon.Button
-          name="arrow-left"
-          backgroundColor="#000"
-          color="#FF3200"
-          style={styles.icon}
-          onPress={() => navigation.pop()}></Icon.Button>
-        <Text style={styles.headText}>Login</Text>
-      </View>
-      <View style={styles.body}>
-        <Text style={styles.emailLabel}>Email</Text>
-        <MKTextField
-          tintColor={MKColor.Silver}
-          textInputStyle={{color: MKColor.Silver, fontSize: 18}}
-          placeholder="email"
-          name="email"
-          onChangeText={handleEmail}
-          placeholderTextColor="#fff"
-          keyboardType="email-address"
-          style={styles.textfield}
-        />
-        <Text style={styles.emailLabel}>Password</Text>
-        <MKTextField
-          tintColor={MKColor.Silver}
-          textInputStyle={{color: MKColor.Silver, fontSize: 18}}
-          placeholder="password"
-          password={true}
-          onChangeText={handlePassword}
-          name="password"
-          placeholderTextColor="#fff"
-          style={styles.textfield}
-        />
-      </View>
-      <View style={styles.footer}>
-        <TouchableOpacity onPress={submitLogin} style={styles.loginButton}>
-          <LinearGradient
-            colors={['#761700', '#FF3200']}
-            style={styles.linearGradient}>
-            <Text style={styles.buttonTitleLogin}>Log In</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-
-        <View style={styles.gotoSignUp}>
-          <Text style={styles.signUpLabel}>You don't have account ?</Text>
-          <TouchableOpacity
-            style={styles.signupButton}
-            onPress={() => navigation.push('Register')}>
-            <Text style={styles.buttonTitleSignUp}>Sign Up</Text>
-          </TouchableOpacity>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <View style={styles.head}>
+          <Icon.Button
+            name="arrow-left"
+            backgroundColor="#000"
+            color="#FF3200"
+            style={styles.icon}
+            onPress={() => navigation.pop()}
+          />
+          <Text style={styles.headText}>Login</Text>
         </View>
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.forgotPasswordLabel}>Forgot My Password</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+        <View style={styles.body}>
+          <Text style={styles.emailLabel}>Username</Text>
+          <MKTextField
+            tintColor={MKColor.Silver}
+            textInputStyle={{color: MKColor.Silver, fontSize: 17}}
+            placeholder="username"
+            name="username"
+            onChangeText={handleEmail}
+            placeholderTextColor="#fff"
+            keyboardType="email-address"
+            style={styles.textfield}
+          />
+          <Text style={styles.emailLabel}>Password</Text>
+          <MKTextField
+            tintColor={MKColor.Silver}
+            textInputStyle={{color: MKColor.Silver, fontSize: 17}}
+            placeholder="password"
+            password={true}
+            onChangeText={handlePassword}
+            name="password"
+            placeholderTextColor="#fff"
+            style={styles.textfield}
+          />
+        </View>
+
+        <View style={styles.footer}>
+          <TouchableOpacity onPress={submitLogin} style={styles.loginButton}>
+            <LinearGradient
+              colors={['#761700', '#FF3200']}
+              style={styles.linearGradient}>
+              <Text style={styles.buttonTitleLogin}>Log In</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+
+          <View style={styles.gotoSignUp}>
+            <Text style={styles.signUpLabel}>You don't have account ?</Text>
+            <TouchableOpacity
+              style={styles.signupButton}
+              onPress={() => navigation.push('Register')}>
+              <Text style={styles.buttonTitleSignUp}>Sign Up</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.forgotPasswordLabel}>Forgot My Password</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -145,18 +153,17 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   head: {
-    height: '33.333%',
+    // height: '33.333%',
   },
   body: {
-    height: '33.333%',
-    marginTop: -50,
+    // height: '33.333%',
   },
   footer: {
     width: '100%',
-    height: '33.333%',
+    // height: '33.333%',
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 50,
   },
   linearGradient: {
     width: '100%',
@@ -167,7 +174,7 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     width: '80%',
-    height: '28%',
+    height: 60,
     marginTop: 30,
     textAlignVertical: 'center',
   },
